@@ -1,0 +1,22 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Bamazon will take in orders from customers and deplete stock from the store's inventory.",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcubillo/bamazon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcubillo/bamazon/issues"
+  },
+  "homepage": "https://github.com/rcubillo/bamazon#readme",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}
