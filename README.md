@@ -141,6 +141,18 @@ This app is something similar to Amazon. The app will take in orders from custom
    * **HINT**: There may be an NPM package that can log the table to the console. What's is it? Good question :)
 
 
+## Contributing Guidelines
+
+All contributions and suggestions are welcome! For direct contributions, please fork the repository and file a pull request.
+
+## Contact
+
+Developer/Full-stack Web Software Developer
+   
+ * E-mail: ronaldcubillo92@gmail.com
+ * [Twitter](https://twitter.com/rcubillo92)
+ * [LinkedIn](https://linkedin.com/in/ronald-cubillo/)
+
 
 
 
