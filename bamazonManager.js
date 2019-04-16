@@ -2,7 +2,7 @@
 var inquirer = require('inquirer');
 
 // Load my password
-var login = require("./login");
+var login = require('./login');
 
 // Load the NPM Package mysql
 var mysql = require('mysql');
@@ -24,28 +24,42 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   //console.log("connected as id " + connection.threadId);
+  principal();
 });
-
 
 // Load the NPM Package inquirer
-var inquirer = require("inquirer");
+var inquirer = require('inquirer');
 
 // Created a series of questions
-inquirer.prompt([
-  {
-    type: "list",
-    name: "doingWhat",
-    message: "Welcome Manager. What do you want to do today?",
-    choices: ["View Products for Sale", "View Low Inventory", "Add to Inventory" , "Add New Product"]
-  },
-]).then(function(manager) {
-if (manager.doingWhat === "View Products for Sale"){
-    inventory();
+
+//This is the main function where show the manager the different options.
+function principal() {
+  inquirer
+    .prompt([
+      {
+        type: 'list',
+        name: 'doingWhat',
+        message: 'Welcome Manager. What do you want to do today?',
+        choices: [
+          'View Products for Sale',
+          'View Low Inventory',
+          'Add to Inventory',
+          'Add New Product',
+          'Exit'
+        ]
+      }
+    ])
+    .then(function(manager) {
+      if (manager.doingWhat === 'View Products for Sale') {
+        inventory();
+      } else if (manager.doingWhat === 'View Low Inventory') {
+        lowInventory();
+      }else if (manager.doingWhat === 'Exit'){
+          process.exit();
+      }
+
+    });
 }
-
-
-});
-
 
 function inventory() {
   connection.query('SELECT * FROM products', function(err, res) {
@@ -72,5 +86,29 @@ function inventory() {
       );
       console.log('');
     }
+    principal();
   });
-};
+}
+
+function lowInventory() {
+  connection.query('SELECT * FROM products', function(err, res) {
+    for (var i = 0; i < res.length; i++) {
+      //List all items with an inventory count lower than five.
+
+      if (res[i].stock_quantity <= 5) {
+        console.log('');
+        console.log('Low Inventory');
+        console.log('=============================================');
+        console.log('');
+        console.log('Id: ' + res[i].item_id);
+        console.log('Department: ' + res[i].department_name);
+        console.log('Product: ' + res[i].product_name);
+        console.log('Quantity: ' + res[i].stock_quantity);
+        console.log('');
+      }
+    }
+    principal();
+  });
+}
+
+
