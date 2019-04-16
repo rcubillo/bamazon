@@ -42,7 +42,7 @@ function principal() {
         name: 'doingWhat',
         message: 'Welcome Manager. What do you want to do today?',
         choices: [
-          'View Products for Sale',
+          'View Products for sale',
           'View Low Inventory',
           'Add to Inventory',
           'Add New Product',
@@ -55,10 +55,12 @@ function principal() {
         inventory();
       } else if (manager.doingWhat === 'View Low Inventory') {
         lowInventory();
-      } else if (manager.doingWhat === 'Exit') {
-        process.exit();
+      } else if (manager.doingWhat === 'Add New Product') {
+         addNewProduct();
       } else if (manager.doingWhat === 'Add to Inventory') {
         addToInventory();
+      }else {
+          process.exit();
       }
     });
 }
@@ -153,3 +155,41 @@ function addToInventory() {
      principal();
     });
 }
+
+function addNewProduct(){
+    inquirer.prompt([{
+
+            type: "input",
+            name: "inputName",
+            message: "Name of the new product: ",
+        },
+        {
+            type: "input",
+            name: "inputDepartment",
+            message: "Department name:",
+        },
+        {
+            type: "input",
+            name: "inputPrice",
+            message: "Price of the product: ",
+        },
+        {
+            type: "input",
+            name: "inputStock",
+            message: "Quantity of the product: ",
+        }
+
+    ]).then(function(manager) {
+
+      //connect to database, insert column data with input from user
+
+      connection.query("INSERT INTO products SET ?", {
+        product_name: manager.inputName,
+        department_name: manager.inputDepartment,
+        price: manager.inputPrice,
+        stock_quantity: manager.inputStock
+      }, function(err, res) {});
+      principal();
+    });
+
+  }
