@@ -37,7 +37,7 @@ inquirer
     {
       type: 'list',
       message: 'What do you want to do today?',
-      choices: ['See inventory', 'Buy a product'],
+      choices: ['See inventory', 'Buy a product', 'Exit'],
       name: 'list'
     }
   ])
@@ -46,8 +46,10 @@ inquirer
     if (inquirerResponse.list === 'See inventory') {
       inventory();
      // afterInventory()
-    } else {
+    } else if (inquirerResponse.list === 'Buy a product') {
       selectionPrompt();
+    } else {
+      process.exit();
     }
   });
 
@@ -116,8 +118,9 @@ function selectionPrompt() {
               );
             } else {
               //list item information for user for confirm prompt
-              console.log('===================================');
+              console.log('');
               console.log('Awesome! We will  be shiping your product within the next days.');
+              console.log('');
               console.log("You've selected:");
               console.log('Item: ' + res[i].product_name);
               console.log('Department: ' + res[i].department_name);
@@ -125,7 +128,7 @@ function selectionPrompt() {
               console.log('Quantity: ' + userPurchase.inputNumber);
               console.log('----------------');
               console.log('Total: $' + res[i].price * userPurchase.inputNumber);
-              console.log('===================================');
+              console.log('');
 
               var newStock = res[i].stock_quantity - userPurchase.inputNumber;
               var purchaseId = userPurchase.inputId;
@@ -178,13 +181,13 @@ function confirmPrompt(newStock, purchaseId) {
                 item_id: purchaseId
             }], function(err, res) {});
 
-            console.log("=================================");
-            console.log("Transaction completed!");
-            console.log("=================================");
+            console.log('');
+            console.log("Your purchase is confirmed!");
+            console.log('');
         } else {
-            console.log("=================================");
+            console.log('');
             console.log("That's fine. Go to Walmart.");
-            console.log("=================================");
+            console.log('');
         }
         principal();
     });
