@@ -34,6 +34,7 @@ var inquirer = require('inquirer');
 
 //This is the main function where show the manager the different options.
 function principal() {
+    console.log("");
   inquirer
     .prompt([
       {
@@ -50,23 +51,27 @@ function principal() {
       }
     ])
     .then(function(manager) {
-      if (manager.doingWhat === 'View Products for Sale') {
+      if (manager.doingWhat === 'View Products for sale') {
         inventory();
       } else if (manager.doingWhat === 'View Low Inventory') {
         lowInventory();
-      }else if (manager.doingWhat === 'Exit'){
-          process.exit();
+      } else if (manager.doingWhat === 'Exit') {
+        process.exit();
+      } else if (manager.doingWhat === 'Add to Inventory') {
+        addToInventory();
       }
-
     });
 }
 
+//Function that shows the actual Inventory.
 function inventory() {
   connection.query('SELECT * FROM products', function(err, res) {
+    console.log("");
     console.log('===================================================');
     console.log('BAMAZON');
     console.log('Existing Inventory: ');
     console.log('===================================================');
+   console.log("");
     for (var i = 0; i < res.length; i++) {
       console.log(
         'ID: ' +
@@ -90,6 +95,7 @@ function inventory() {
   });
 }
 
+//Functions that shows the low inventory.
 function lowInventory() {
   connection.query('SELECT * FROM products', function(err, res) {
     for (var i = 0; i < res.length; i++) {
@@ -111,4 +117,39 @@ function lowInventory() {
   });
 }
 
-
+//Functions that add a new product to the inventory
+function addToInventory() {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'id',
+        message:
+          'Enter the Id of the product you would like to add to inventory'
+      },
+      {
+        type: 'input',
+        name: 'amount',
+        message:
+          'Amount of products you want to add to inventory?'
+      }
+    ])
+    .then(function(manager) {
+      connection.query(
+        'UPDATE products SET ? WHERE ?',
+        [
+          {
+            stock_quantity: manager.amount
+          },
+          {
+            item_id: manager.id
+          }
+        ],
+        function(err, res) {}
+      );
+      console.log("");
+      console.log("Awesome. Your inventory has been updated. Now BAMAZON has " + manager.amount + " more products.");
+      console.log("");
+     principal();
+    });
+}

@@ -177,7 +177,7 @@ function confirmPrompt(newStock, purchaseId) {
             console.log("=================================");
         } else {
             console.log("=================================");
-            console.log("No worries. Maybe next time!");
+            console.log("That's fine. Go to Walmart.");
             console.log("=================================");
         }
     });
