@@ -23,9 +23,13 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) throw err;
+  console.log("Welcome to BAMAZON")
   //console.log("connected as id " + connection.threadId);
+   principal ();
 });
 
+
+function principal (){
 // Create a "Prompt" with a series of questions.
 inquirer
   .prompt([
@@ -41,11 +45,14 @@ inquirer
     // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
     if (inquirerResponse.list === 'See inventory') {
       inventory();
-      afterInventory()
+     // afterInventory()
     } else {
       selectionPrompt();
     }
   });
+
+}
+
 
 function inventory() {
   connection.query('SELECT * FROM products', function(err, res) {
@@ -72,6 +79,7 @@ function inventory() {
       );
       console.log('');
     }
+    principal();
   });
 }
 
@@ -109,10 +117,8 @@ function selectionPrompt() {
             } else {
               //list item information for user for confirm prompt
               console.log('===================================');
-              console.log('Awesome! We can fulfull your order.');
-              console.log('===================================');
+              console.log('Awesome! We will  be shiping your product within the next days.');
               console.log("You've selected:");
-              console.log('----------------');
               console.log('Item: ' + res[i].product_name);
               console.log('Department: ' + res[i].department_name);
               console.log('Price: ' + res[i].price);
@@ -173,13 +179,14 @@ function confirmPrompt(newStock, purchaseId) {
             }], function(err, res) {});
 
             console.log("=================================");
-            console.log("Transaction completed. Thank you.");
+            console.log("Transaction completed!");
             console.log("=================================");
         } else {
             console.log("=================================");
             console.log("That's fine. Go to Walmart.");
             console.log("=================================");
         }
+        principal();
     });
 }
 
