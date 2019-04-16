@@ -1,6 +1,9 @@
 // Load the NPM Package inquirer
 var inquirer = require('inquirer');
 
+// Load my password
+var login = require("./login");
+
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -13,7 +16,7 @@ var connection = mysql.createConnection({
   user: 'root',
 
   // Your password
-  password: 'Chino2015',
+  password: login.password,
   database: 'bamazon'
 });
 
