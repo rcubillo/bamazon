@@ -1,4 +1,4 @@
-# BAMAZON :shipit:
+# :moneybag: BAMAZON :moneybag:
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
@@ -67,10 +67,11 @@ This app is something similar to Amazon. The app will take in orders from custom
 ##
 {PICTURE 4}
 ##   
+ 
+### Part #2: 
+## Manager View.
 
-### Challenge #2: Manager View (Next Level)
-
-* Create a new Node application called `bamazonManager.js`. Running this application will:
+* The app contains a new Node application called `bamazonManager.js`. Running this application will:
 
   * List a set of menu options:
 
@@ -81,6 +82,10 @@ This app is something similar to Amazon. The app will take in orders from custom
     * Add to Inventory
 
     * Add New Product
+    
+##
+{PICTURE 5}
+##     
 
   * If a manager selects `View Products for Sale`, the app should list every available item: the item IDs, names, prices, and quantities.
 
@@ -89,14 +94,14 @@ This app is something similar to Amazon. The app will take in orders from custom
   * If a manager selects `Add to Inventory`, your app should display a prompt that will let the manager "add more" of any item currently in the store.
 
   * If a manager selects `Add New Product`, it should allow the manager to add a completely new product to the store.
+  
+##
+{PICTURE 6}
+##   
 
-- - -
 
-* If you finished Challenge #2 and put in all the hours you were willing to spend on this activity, then rest easy! Otherwise continue to the next and final challenge.
-
-- - -
-
-### Challenge #3: Supervisor View (Final Level)
+### Part #3:
+## Supervisor View 
 
 1. Create a new MySQL table called `departments`. Your table should include the following columns:
 
