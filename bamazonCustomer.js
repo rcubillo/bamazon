@@ -29,7 +29,7 @@ inquirer
     {
       type: 'list',
       message: 'What do you want to do today?',
-      choices: ['See inventory', 'buy a product'],
+      choices: ['See inventory', 'Buy a product'],
       name: 'list'
     }
   ])
