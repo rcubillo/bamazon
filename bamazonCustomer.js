@@ -58,10 +58,10 @@ inquirer
 
 function inventory() {
   connection.query('SELECT * FROM products', function(err, res) {
-    console.log('===================================================');
+    console.log(' ');
     console.log('BAMAZON');
     console.log('Existing Inventory: ');
-    console.log('===================================================');
+    console.log(' ');
     for (var i = 0; i < res.length; i++) {
       console.log(
         'ID: ' +
@@ -140,27 +140,6 @@ function selectionPrompt() {
       );
     });
 };
-
-// function afterInventory() {
-//   inquirer
-//     .prompt([
-//       // Here we give the user a list to choose from.
-//       {
-//         type: 'list',
-//         message: 'What do you want to do?',
-//         choices: ['Buy a product', 'Exit'],
-//         name: 'after'
-//       }
-//     ])
-//     .then(function(user) {
-//       // If the user guesses the password...
-//       if (user.after === 'Buy a product') {
-//         selectionPrompt();
-//       }else {
-//         process.exit();
-//       }
-//     });
-// };
 
 function confirmPrompt(newStock, purchaseId) {
 
