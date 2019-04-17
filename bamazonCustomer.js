@@ -110,11 +110,11 @@ function selectionPrompt() {
           for (var i = 0; i < res.length; i++) {
             if (userPurchase.inputNumber > res[i].stock_quantity) {
               console.log(
-                '==================================================='
+                ''
               );
               console.log('Insufficient quantity!');
               console.log(
-                '==================================================='
+                ''
               );
             } else {
               //list item information for user for confirm prompt
@@ -135,31 +135,32 @@ function selectionPrompt() {
              confirmPrompt(newStock, purchaseId);
             }
           }
+          principal();
         }
       );
     });
 };
 
-function afterInventory() {
-  inquirer
-    .prompt([
-      // Here we give the user a list to choose from.
-      {
-        type: 'list',
-        message: 'What do you want to do?',
-        choices: ['Buy a product', 'Exit'],
-        name: 'after'
-      }
-    ])
-    .then(function(user) {
-      // If the user guesses the password...
-      if (user.after === 'Buy a product') {
-        selectionPrompt();
-      }else {
-        process.exit();
-      }
-    });
-};
+// function afterInventory() {
+//   inquirer
+//     .prompt([
+//       // Here we give the user a list to choose from.
+//       {
+//         type: 'list',
+//         message: 'What do you want to do?',
+//         choices: ['Buy a product', 'Exit'],
+//         name: 'after'
+//       }
+//     ])
+//     .then(function(user) {
+//       // If the user guesses the password...
+//       if (user.after === 'Buy a product') {
+//         selectionPrompt();
+//       }else {
+//         process.exit();
+//       }
+//     });
+// };
 
 function confirmPrompt(newStock, purchaseId) {
 
