@@ -13,7 +13,7 @@
 
 This app is something similar to Amazon. The app will take in orders from customers and deplete stock from the store's inventory.
 
-[![Watch the video](https://www.youtube.com/watch?v=zkeYNlQDN5w)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/zkeYNlQDN5w)
 
 ## Instructions
 
