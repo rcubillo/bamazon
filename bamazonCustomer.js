@@ -55,7 +55,6 @@ inquirer
 
 }
 
-
 function inventory() {
   connection.query('SELECT * FROM products', function(err, res) {
     console.log(' ');
