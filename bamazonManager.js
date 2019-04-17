@@ -150,7 +150,7 @@ function addToInventory() {
         function(err, res) {}
       );
       console.log("");
-      console.log("Awesome. Your inventory has been updated. Now BAMAZON has " + manager.amount + " more products.");
+      console.log("Awesome. Your inventory has been updated. Now BAMAZON has ");
       console.log("");
      principal();
     });
