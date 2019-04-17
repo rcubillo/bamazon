@@ -52,6 +52,8 @@ This app is something similar to Amazon. The app will take in orders from custom
 
 7. Once the customer has placed the order, your application should check if your store has enough of the product to meet the customer's request.
 
+![Log Output](screenshots/4.png)
+
    * If not, the app should log a phrase like `Insufficient quantity!`, and then prevent the order from going through.
    
 ##
@@ -62,9 +64,7 @@ This app is something similar to Amazon. The app will take in orders from custom
    * This means updating the SQL database to reflect the remaining quantity.
    * Once the update goes through, show the customer the total cost of their purchase.
 
-##
-{PICTURE 4}
-##   
+![Log Output](screenshots/5.png)
  
 ### Part #2: 
 ## Manager View.
