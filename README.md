@@ -39,9 +39,9 @@ This app is something similar to Amazon. The app will take in orders from custom
 
 5. A Node application called `bamazonCustomer.js`. Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
 
-##
-{PICTURE 1}
-##
+![Log Output](screenshots/1.png)
+
+![Log Output](screenshots/2.png)
 
 6. The app prompt users with two messages.
 
